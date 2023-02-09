@@ -16,7 +16,7 @@
    * 若版本為 `11 (bullseye)` 請下載 [Raspberry Pi Imager](https://www.raspberrypi.com/software/) 並選擇安裝 `Raspberry Pi OS (Legacy)`
 2. 升級 NumPy
    * `pip3 install -U numpy`
-3. 安裝OpenCV & 倚賴項:
+3. 安裝OpenCV & 依賴項:
    * 安裝依賴項
      * `sudo apt-get install libatlas-base-dev libhdf5-dev libhdf5-serial-dev libatlas-base-dev libjasper-dev libqtgui4 libqt4-test`
    * 安裝 OpenCV
