@@ -5,7 +5,7 @@
 * 若密碼錯誤次數超過3次，則會清除密碼，需要重新設定才可使用。
 * 目前在這個項目沒有提供關於伺服馬達的程式，親手寫看看吧。
 
-## Installation `<br/>`
+## Installation
 
 * 若要快速安裝可使用 [install_rpi.sh](install_rpi.sh)
   請在此專案目錄下在 **Raspberry Pi** 的終端機輸入以下命令
@@ -28,17 +28,17 @@
 6. 修改 [main.py](main.py) 的 `可調整區域` 來符合你的要求
 
 7. 修改 `Raspberry Pi` 設定，啟動I2C
-![I2C 設定](https://raw.githubusercontent.com/MeowXiaoXiang/Gesture-Controlled-Door-Lock-System/master/markdown_img/raspi_config.png){:height="50%" width="50%"}
+![I2C 設定](https://raw.githubusercontent.com/MeowXiaoXiang/Gesture-Controlled-Door-Lock-System/master/markdown_img/raspi_config.png)
 * 如要在 Windows 上測試，直接用以下指令安裝套件即可，並設定 [main.py](main.py) 的 `可調整區域` 來符合你的要求
   * `pip install -r requirements_win.txt`
 
-## User Guide `<br/>`
+## User Guide
 
 1. 首先進入 [http://127.0.0.1:8080/](http://127.0.0.1:8080/) 這個網頁。(可能受到你設定的Port影響)
 2. 在網頁上設定密碼和密碼時效，並點擊 `「送出設定」`按鈕。
 3. 輸入密碼的方式是在 **WebCam** 前面用單手比出數字，**OLED** 會顯示您已輸入的密碼。
 4. 確認密碼無誤後再比出讚的手勢，門就會開開。若錯誤三次，則會清除密碼。
 
-## Wiring diagram `<br/>`
-![接線圖](https://raw.githubusercontent.com/MeowXiaoXiang/Gesture-Controlled-Door-Lock-System/master/markdown_img/wiring_diagram.jpg){:height="50%" width="50%"}
+## Wiring diagram
+![接線圖](https://raw.githubusercontent.com/MeowXiaoXiang/Gesture-Controlled-Door-Lock-System/master/markdown_img/wiring_diagram.jpg)
 
