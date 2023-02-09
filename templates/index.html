@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css')}}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,600,0,0" />
+    <title>手勢控制門鎖登入頁面</title>
+</head>
+
+<body>
+    <form method="post">
+        <div class="container">
+            <div class="login-left">
+                <div class="login-header">
+                    <h1>手勢控制門鎖系統－密碼設定</h1>
+                    <p>請輸入密碼及時效</p>
+                </div>
+                <form class="login-form" autocomplete="off">
+                    <div class="login-form-content">
+                        <div class="form-item">
+                            <label for="passwordForm">輸入密碼</label>
+                            <input type="password" id="passwordForm" type="text" name="passinput">
+                        </div>
+                        <div class="form-item">
+                            <label for="passwordForm">輸入時效(秒)</label>
+                            <input type="number" name="timeliness" min="60" max="240" value="60" >
+                        </div>
+                        <button type="submit" name="send" value="送出">送出設定</button>
+                        <div class="form-item">
+                            <div class="tip">
+                                {{ tip|safe }}
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="login-right">
+                <img src="{{ url_for('static', filename='image.jfif')}}" alt="image">
+            </div>
+        </div>
+    </form>
+</body>
+
+</html>
