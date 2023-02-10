@@ -28,7 +28,9 @@
 6. 修改 [main.py](main.py) 的 **可調整區域** 來符合你的要求
 
 7. 修改 **Raspberry Pi** 設定，啟動I2C
+
 ![I2C 設定](https://raw.githubusercontent.com/MeowXiaoXiang/Gesture-Controlled-Door-Lock-System/master/markdown_img/raspi_config.png)
+
 * 如要在 Windows 上測試，直接用以下指令安裝套件即可，並設定 [main.py](main.py) 的 **可調整區域** 來符合你的要求
   * `pip install -r requirements_win.txt`
 
