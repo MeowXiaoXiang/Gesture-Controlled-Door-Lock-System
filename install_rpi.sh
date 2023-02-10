@@ -2,8 +2,9 @@
 
 # Check Raspberry Pi OS Version
 version=$(lsb_release -a | grep "Release" | awk '{print $2}')
-if [ "$version" != "10 (buster)" ]; then
-    echo "Error: Mediapipe 只能在 Raspberry Pi OS 10 (buster) 下執行，你的樹梅派版本是 $version."
+if [ "$version" != "10" ]; then
+    echo "Error: Mediapipe 只能在 Raspberry Pi OS 10 (buster) 下執行，你的 Raspberry Pi OS 版本是 $version"
+    echo "可以去 Raspberry Pi OS 官方網站下載 Raspberry Pi Imager 選擇安裝 Raspberry Pi OS (Legacy)"
     exit 1
 fi
 
