@@ -37,9 +37,9 @@
 ## User Guide
 
 1. 首先進入 [http://127.0.0.1:8080/](http://127.0.0.1:8080/) 這個網頁。(可能受到你設定的Port影響)
-2. 在網頁上設定密碼和密碼時效，並點擊 **「送出設定」**按鈕。
+2. 在網頁上設定密碼和密碼時效，並點擊 **「送出設定」** 按鈕。
 3. 輸入密碼的方式是在 **WebCam** 前面用單手比出數字，**OLED** 會顯示您已輸入的密碼。
-4. 確認密碼無誤後再比出讚的手勢，門就會開開。若錯誤三次，則會清除密碼。
+4. 確認密碼無誤後再比出**讚**的手勢，門就會開開。若錯誤三次，則會清除密碼。
 
 ## Wiring diagram
 ![接線圖](https://raw.githubusercontent.com/MeowXiaoXiang/Gesture-Controlled-Door-Lock-System/master/markdown_img/wiring_diagram.jpg)
