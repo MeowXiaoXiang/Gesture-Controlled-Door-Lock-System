@@ -8,6 +8,9 @@ if [ "$version" != "10" ]; then
     exit 1
 fi
 
+# Install loguru
+pip3 install loguru
+
 # Upgrade Numpy
 pip3 install -U numpy
 
