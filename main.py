@@ -8,21 +8,39 @@ from flask import Flask, render_template, request
 I2C_OLED = False           # 是否啟用OLED，未開啟會在終端機出現
 cv2_Screen = True          # 顯示偵測手指的畫面(省資源可以設定成False關閉)
 detection_Interval = 1.5   # 偵測間隔時間(單位:秒)
-errorCount = 3             # 密碼錯誤次數 
-# ----------------------------------------------------
+errorCount = 3             # 密碼錯誤次數
+servoMotor = False         # 啟用伺服馬達
+# ---------------------------------------------------
 Password = None            # 設定的密碼 (網頁設定)
 enteredPassword = ""      # 正在輸入的密碼
 validityTime = None     # 密碼有效時間 (單位:秒) (用於網頁設定)
 start_validityTime = None # 密碼有效時間的開始記錄時間 (用於記錄被設定密碼的開始時間)
-# ------------------GPIO輸出設定區域 (樹梅派)(參考)----
-# GPIO.setmode(GPIO.BOARD)
-# GPIO.setup(,GPIO.OUT)
-# servo1 = GPIO.PWM(,)
-# ---------------------動作區域-----------------------
-# 自行依照想要的動作設計
+# ------GPIO伺服馬達輸出設定區域 (樹梅派)(僅供參考)---------
+if servoMotor:
+    CONTROL_PIN = 18
+    PWM_FREQ = 50
+    STEP=200
+    GPIO.setmode(GPIO.BCM)
+    GPIO.setup(CONTROL_PIN, GPIO.OUT)
+    pwm = GPIO.PWM(CONTROL_PIN, PWM_FREQ)
+    pwm.start(0)
+
+def angle_to_duty_cycle(angle=0):
+    duty_cycle = (0.05 * PWM_FREQ) + (0.19 * PWM_FREQ * angle / 180)
+    return duty_cycle
+
+def openDoor():
+    if servoMotor:
+        for angle in range(160, -1, -STEP):
+            dc = angle_to_duty_cycle(angle)
+            pwm.ChangeDutyCycle(dc)
+            print('={: >3}, {:.2f}'.format(angle, dc))
+            time.sleep(2)
+            pwm.stop()
+
 # ---------------------------------------------------
 
-# ----------- I2C OLED 點矩陣液晶顯示器(樹梅派)--------
+# ----------- I2C OLED 點矩陣液晶顯示器(樹梅派)(僅供參考---
 if I2C_OLED:
     from luma.core.interface.serial import i2c, spi
     from luma.core.render import canvas
@@ -89,6 +107,7 @@ def main():
                     enteredPassword = ""
                     Password = None
                     oled_control(['Enter Password:', 'Pass'])
+                    openDoor()
                     logger.info("大門已開啟")
                     print("密碼正確，大門已開啟")
                 else:
