@@ -16,28 +16,36 @@ enteredPassword = ""      # 正在輸入的密碼
 validityTime = None     # 密碼有效時間 (單位:秒) (用於網頁設定)
 start_validityTime = None # 密碼有效時間的開始記錄時間 (用於記錄被設定密碼的開始時間)
 # ------GPIO伺服馬達輸出設定區域 (樹梅派)(僅供參考)---------
-if servoMotor:
-    CONTROL_PIN = 18
-    PWM_FREQ = 50
-    STEP=200
-    GPIO.setmode(GPIO.BCM)
-    GPIO.setup(CONTROL_PIN, GPIO.OUT)
-    pwm = GPIO.PWM(CONTROL_PIN, PWM_FREQ)
-    pwm.start(0)
 
-def angle_to_duty_cycle(angle=0):
-    duty_cycle = (0.05 * PWM_FREQ) + (0.19 * PWM_FREQ * angle / 180)
-    return duty_cycle
-
-def openDoor():
+def operate_motor(freq:int=50): -> None
+    """
+    控制伺服馬達開關，可調整裡面的degrees來決定動作。
+    :param freq: int，伺服馬達頻率控制，預設50。
+    """
     if servoMotor:
-        for angle in range(160, -1, -STEP):
-            dc = angle_to_duty_cycle(angle)
-            pwm.ChangeDutyCycle(dc)
-            print('={: >3}, {:.2f}'.format(angle, dc))
-            time.sleep(2)
-            pwm.stop()
+        motorPin = 18            # 腳位 18
+        GPIO.setmode(GPIO.BCM)   # GPIO模式
+        GPIO.setup(motorPin, GPIO.OUT) # 輸出腳位OUT
+        SG90=GPIO.PWM(motorPin, freq)  # 建立實體物件, 腳位, 頻率
+        SG90.start(0)            # 開始
 
+        def duty_cycle_angle(angle=0):
+            duty_cycle = (0.05*freq) + (0.19*freq*angle/180)
+            return duty_cycle
+
+        def move(degree, wait_time):
+            duty_cycle = duty_cycle_angle(degree)
+            # print(f"{degree}度 = {duty_cycle}週期")
+            SG90.ChangeDutyCycle(duty_cycle)
+            time.sleep(wait_time)
+
+        degrees = [50, 150, 50] #50關 150開 50關
+        for _ in range(3):
+            for degree in degrees:
+                move(degree, wait_time=0.35)
+
+        SG90.stop()
+        GPIO.cleanup()
 # ---------------------------------------------------
 
 # ----------- I2C OLED 點矩陣液晶顯示器(樹梅派)(僅供參考---
@@ -107,7 +115,7 @@ def main():
                     enteredPassword = ""
                     Password = None
                     oled_control(['Enter Password:', 'Pass'])
-                    openDoor()
+                    operate_motor()
                     logger.info("大門已開啟")
                     print("密碼正確，大門已開啟")
                 else:
