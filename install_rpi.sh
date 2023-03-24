@@ -1,5 +1,6 @@
 #!/bin/bash
 
+echo "這可能要花費些時間，請耐心等待。"
 # Check Raspberry Pi OS Version
 version=$(lsb_release -a | grep "Release" | awk '{print $2}')
 if [ "$version" != "10" ]; then
