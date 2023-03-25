@@ -24,3 +24,5 @@ pip3 install mediapipe-rpi4
 
 # Install OLED Package
 pip3 install luma.oled
+
+echo "安裝完成！"
