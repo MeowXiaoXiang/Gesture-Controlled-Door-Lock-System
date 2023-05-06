@@ -17,7 +17,7 @@ validityTime = None     # 密碼有效時間 (單位:秒) (用於網頁設定)
 start_validityTime = None # 密碼有效時間的開始記錄時間 (用於記錄被設定密碼的開始時間)
 # ------GPIO伺服馬達輸出設定區域 (樹梅派)(僅供參考)---------
 
-def operate_motor(freq:int=50): -> None
+def operate_motor(freq:int=50) -> None:
     """
     控制伺服馬達開關，可調整裡面的degrees來決定動作。
     :param freq: int，伺服馬達頻率控制，預設50。
