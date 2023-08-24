@@ -43,8 +43,6 @@
 
 ## Wiring diagram
 ![接線圖](https://raw.githubusercontent.com/MeowXiaoXiang/Gesture-Controlled-Door-Lock-System/master/markdown_img/wiring_diagram.jpg)
-* 圖中的SDA SCL位置是錯誤的，請交換位置
-
 
 ---
 ## 參考資料
