@@ -20,7 +20,7 @@
    * 安裝依賴項
      * `sudo apt-get install libatlas-base-dev`
    * 安裝 OpenCV
-     * `pip3 install opencv-python`
+     * `pip3 install opencv-python==4.6.0.*`
 4. 安裝Mediapipe
    * `pip3 install mediapipe-rpi4`
 5. 安裝 OLED 套件
