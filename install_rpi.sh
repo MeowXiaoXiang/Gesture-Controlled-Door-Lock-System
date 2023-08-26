@@ -17,7 +17,7 @@ pip3 install -U numpy
 
 # Install OpenCV & dependencies
 sudo apt-get install libatlas-base-dev libhdf5-dev
-pip3 install opencv-python
+pip3 install opencv-python==4.6.0.*
 
 # Install Mediapipe
 pip3 install mediapipe-rpi4
