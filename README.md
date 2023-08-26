@@ -18,9 +18,9 @@
    * `pip3 install -U numpy`
 3. 安裝OpenCV & 依賴項:
    * 安裝依賴項
-     * `sudo apt-get install libatlas-base-dev libhdf5-dev libhdf5-serial-dev libatlas-base-dev libjasper-dev libqtgui4 libqt4-test`
+     * `sudo apt-get install libatlas-base-dev`
    * 安裝 OpenCV
-     * `sudo apt-get install -y libopencv-dev python3-opencv`
+     * `pip3 install opencv-python`
 4. 安裝Mediapipe
    * `pip3 install mediapipe-rpi4`
 5. 安裝 OLED 套件
