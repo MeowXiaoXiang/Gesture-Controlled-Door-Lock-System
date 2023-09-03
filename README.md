@@ -18,7 +18,7 @@
    * `pip3 install numpy==1.21.6`
 3. 安裝OpenCV & 依賴項:
    * 安裝依賴項
-     * `sudo apt-get install libatlas-base-dev`
+     * `sudo apt install libatlas-base-dev`
    * 安裝 OpenCV
      * `pip3 install opencv-python==4.6.0.*`
 4. 安裝Mediapipe
