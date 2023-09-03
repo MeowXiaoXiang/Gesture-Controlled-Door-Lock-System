@@ -16,7 +16,7 @@ pip3 install loguru
 pip3 install numpy==1.21.6
 
 # Install OpenCV & dependencies
-sudo apt-get install libatlas-base-dev
+sudo apt install libatlas-base-dev
 pip3 install opencv-python==4.6.0.*
 
 # Install Mediapipe
