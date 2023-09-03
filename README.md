@@ -15,7 +15,7 @@
    * **Raspberry Pi** 的終端機並輸入 `lsb_release -a` 檢查版本
    * 若版本為 `11 (bullseye)` 請下載 [Raspberry Pi Imager](https://www.raspberrypi.com/software/) 並選擇安裝 `Raspberry Pi OS (Legacy)`
 2. 升級 NumPy
-   * `pip3 install -U numpy`
+   * `pip3 install numpy==1.21.6`
 3. 安裝OpenCV & 依賴項:
    * 安裝依賴項
      * `sudo apt-get install libatlas-base-dev`
