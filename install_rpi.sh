@@ -13,7 +13,7 @@ fi
 pip3 install loguru
 
 # Upgrade Numpy
-pip3 install numpy==1.21.6
+pip3 install numpy==1.13.3
 
 # Install OpenCV & dependencies
 sudo apt install libatlas-base-dev
