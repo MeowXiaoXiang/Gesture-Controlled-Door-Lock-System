@@ -14,6 +14,9 @@
 1. 確認 **Raspberry Pi** 作業系統的 Debian 版本為 `10 (buster)`
    * **Raspberry Pi** 的終端機並輸入 `lsb_release -a` 檢查版本
    * 若版本為 `11 (bullseye)` 請下載 [Raspberry Pi Imager](https://www.raspberrypi.com/software/) 並選擇安裝 `Raspberry Pi OS (Legacy)`
+2. 安裝開發相關套件
+   * `sudo apt update`
+   * `sudo apt install build-essential python3-dev`
 2. 升級 NumPy
    * `pip3 install -U numpy`
 3. 安裝OpenCV & 依賴項:
