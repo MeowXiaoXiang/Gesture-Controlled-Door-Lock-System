@@ -14,23 +14,23 @@
 1. 確認 **Raspberry Pi** 作業系統的 Debian 版本為 `10 (buster)`
    * **Raspberry Pi** 的終端機並輸入 `lsb_release -a` 檢查版本
    * 若版本為 `11 (bullseye)` 請下載 [Raspberry Pi Imager](https://www.raspberrypi.com/software/) 並選擇安裝 `Raspberry Pi OS (Legacy)`
-2. 安裝開發相關套件
+2. 更新所有套件
    * `sudo apt update`
-   * `sudo apt install build-essential python3-dev`
-2. 升級 NumPy
+   * `sudo apt upgrade`
+3. 升級 NumPy
    * `pip3 install -U numpy`
-3. 安裝OpenCV & 依賴項:
+4. 安裝OpenCV & 依賴項:
    * 安裝依賴項
      * `sudo apt install libatlas-base-dev`
    * 安裝 OpenCV
      * `pip3 install opencv-python==4.6.0.*`
-4. 安裝Mediapipe
+5. 安裝Mediapipe
    * `pip3 install mediapipe-rpi4`
-5. 安裝 OLED 套件
+6. 安裝 OLED 套件
    * `pip3 install luma.oled`
-6. 修改 [main.py](main.py) 的 **可調整區域** 來符合你的要求
+7. 修改 [main.py](main.py) 的 **可調整區域** 來符合你的要求
 
-7. 修改 **Raspberry Pi** 設定，啟動I2C
+8. 修改 **Raspberry Pi** 設定，啟動I2C
 
 ![I2C 設定](https://raw.githubusercontent.com/MeowXiaoXiang/Gesture-Controlled-Door-Lock-System/master/markdown_img/raspi_config.png)
 
