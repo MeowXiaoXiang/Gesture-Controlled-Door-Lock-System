@@ -1,12 +1,35 @@
-#!/bin/bash
-
 echo "這可能要花費些時間，請耐心等待。"
-# Check Raspberry Pi OS Version
-version=$(lsb_release -a | grep "Release" | awk '{print $2}')
-if [ "$version" != "10" ]; then
-    echo "Error: Mediapipe 只能在 Raspberry Pi OS 10 (buster) 下執行，你的 Raspberry Pi OS 版本是 $version"
-    echo "可以去 Raspberry Pi OS 官方網站下載 Raspberry Pi Imager 選擇安裝 Raspberry Pi OS (Legacy)"
-    exit 1
+
+# Detect Raspberry Pi OS Architecture
+architecture=$(uname -m)
+version=$(lsb_release -r | awk '{print $2}')
+codename=$(lsb_release -c | awk '{print $2}')
+pi_model=$(cat /proc/cpuinfo | grep "Model" | awk '{$1=$2=""; sub(/^ +/, ""); print $0}')
+# 顯示給使用者看詳細資訊
+echo "[$pi_model]"
+echo "Raspberry Pi OS 資訊"
+echo "作業系統架構: $architecture"
+echo "作業系統版本: $version 代號: $codename"
+
+if [ "$architecture" == "armv7l" ]; then
+    # 若是 Raspberry Pi OS (Buster) 32-bit (armv7l)
+    if [ "$version" == "11" ]; then
+        echo "Error: Mediapipe 目前確認只能在以下作業系統版本或架構執行:"
+        echo "Raspberry Pi OS 10 (Buster) 32-bit (armv7l)"
+        echo "Raspberry Pi OS 11 (Bullseye) 64-bit (aarch64)"
+        echo "可以去 Raspberry Pi OS 官方網站利用 Raspberry Pi Imager 下載並安裝 Raspberry Pi OS (Legacy) 或 Raspberry OS (64-bit)"
+        echo "Raspberry Pi OS 官方網站: https://www.raspberrypi.com/software/"
+        exit 1
+    fi
+else
+    echo "警告: 不支援或無法確定是否支援的架構 ($architecture)"
+    read -p "繼續執行安裝指令檔? (按 Enter 繼續，或輸入 'n' 退出): " continue_execution
+    if [ "$continue_execution" != "n" ]; then
+        echo "繼續進行安裝套件..."
+    else
+        echo "結束指令檔案"
+        exit 1
+    fi
 fi
 
 # Install loguru
@@ -16,11 +39,20 @@ pip3 install loguru
 pip3 install -U numpy
 
 # Install OpenCV & dependencies
-sudo apt install libatlas-base-dev
+sudo apt install -y libatlas-base-dev
 pip3 install opencv-python==4.6.0.*
 
 # Install Mediapipe
-pip3 install mediapipe-rpi4
+if [ "$architecture" == "armv7l" ]; then
+    if [ "$(pi_model | awk '{print $3}')" = "3" ]; then
+        pip3 install mediapipe-rpi3
+    else
+        pip3 install mediapipe-rpi4
+    fi
+else
+    pip3 install mediapipe
+fi
+
 
 # Install OLED Package
 pip3 install luma.oled
