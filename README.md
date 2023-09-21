@@ -25,13 +25,13 @@
    * 安裝 OpenCV
      * `pip3 install opencv-python==4.6.0.*`
 5. 安裝Mediapipe
-    若樹梅派使用了32-bit的架構的 Raspberry Pi OS :
-      Raspberry Pi 3 :
-      * `pip3 install mediapipe-rpi3`
-      Raspberry Pi 4 :
-      * `pip3 install mediapipe-rpi4`
-    若樹梅派是使用 Raspberry Pi OS (64-bit)
-    * `pip3 install mediapipe`
+    * 若樹梅派使用了32-bit的架構的 Raspberry Pi OS :
+      * Raspberry Pi 3 :
+        * `pip3 install mediapipe-rpi3`
+      * Raspberry Pi 4 :
+        * `pip3 install mediapipe-rpi4`
+    * 若樹梅派是使用 Raspberry Pi OS (64-bit)
+        * `pip3 install mediapipe`
 7. 安裝 OLED 套件
    * `pip3 install luma.oled`
 8. 修改 [main.py](main.py) 的 **可調整區域** 來符合你的要求
