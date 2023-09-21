@@ -11,6 +11,16 @@ echo "Raspberry Pi OS 資訊"
 echo "作業系統架構: $architecture"
 echo "作業系統版本: $version 代號: $codename"
 
+read -p "是否要先更新所有套件? (输入 'y' 继续，或 'n' 跳过): " run_update
+
+if [ "$run_update" = "y" ]; then
+    echo "正在執行 'sudo apt update && sudo apt upgrade'..."
+    sudo apt update && sudo apt upgrade
+    echo "更新完成"
+else
+    echo "跳過更新"
+fi
+
 if [ "$architecture" == "armv7l" ]; then
     # 若是 Raspberry Pi OS (Buster) 32-bit (armv7l)
     if [ "$version" == "11" ]; then
