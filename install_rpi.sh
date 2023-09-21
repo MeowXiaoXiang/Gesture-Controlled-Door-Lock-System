@@ -30,7 +30,11 @@ if [ "$architecture" == "armv7l" ]; then
         echo "可以去 Raspberry Pi OS 官方網站利用 Raspberry Pi Imager 下載並安裝 Raspberry Pi OS (Legacy) 或 Raspberry OS (64-bit)"
         echo "Raspberry Pi OS 官方網站: https://www.raspberrypi.com/software/"
         exit 1
+    elif [ "$version" == "10" ]; then
+        echo "已確認版本為 $version ($codename) 繼續進行安裝..."
     fi
+elif [ "$architecture" == "aarch64" ]; then
+        echo "已確認架構為 $architecture 繼續進行安裝..."
 else
     echo "警告: 不支援或無法確定是否支援的架構 ($architecture)"
     read -p "繼續執行安裝指令檔? (按 Enter 繼續安裝，或輸入 'n' 退出): " continue_execution
