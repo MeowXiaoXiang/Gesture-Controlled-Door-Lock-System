@@ -11,9 +11,9 @@ echo "Raspberry Pi OS 資訊"
 echo "作業系統架構: $architecture"
 echo "作業系統版本: $version 代號: $codename"
 
-read -p "是否要先更新所有套件? (输入 'y' 继续，或 'n' 跳过): " run_update
+read -p "是否要先更新所有套件? (按 Enter 開始更新，或輸入 'n' 跳過): " run_update
 
-if [ "$run_update" = "y" ]; then
+if [ "$run_update" != "n" ]; then
     echo "正在執行 'sudo apt update && sudo apt upgrade'..."
     sudo apt update && sudo apt upgrade
     echo "更新完成"
@@ -24,7 +24,7 @@ fi
 if [ "$architecture" == "armv7l" ]; then
     # 若是 Raspberry Pi OS (Buster) 32-bit (armv7l)
     if [ "$version" == "11" ]; then
-        echo "Error: Mediapipe 目前確認只能在以下作業系統版本或架構執行:"
+        echo "錯誤: Mediapipe 目前確認只能在以下作業系統版本或架構執行:"
         echo "Raspberry Pi OS 10 (Buster) 32-bit (armv7l)"
         echo "Raspberry Pi OS 11 (Bullseye) 64-bit (aarch64)"
         echo "可以去 Raspberry Pi OS 官方網站利用 Raspberry Pi Imager 下載並安裝 Raspberry Pi OS (Legacy) 或 Raspberry OS (64-bit)"
@@ -33,7 +33,7 @@ if [ "$architecture" == "armv7l" ]; then
     fi
 else
     echo "警告: 不支援或無法確定是否支援的架構 ($architecture)"
-    read -p "繼續執行安裝指令檔? (按 Enter 繼續，或輸入 'n' 退出): " continue_execution
+    read -p "繼續執行安裝指令檔? (按 Enter 繼續安裝，或輸入 'n' 退出): " continue_execution
     if [ "$continue_execution" != "n" ]; then
         echo "繼續進行安裝套件..."
     else
