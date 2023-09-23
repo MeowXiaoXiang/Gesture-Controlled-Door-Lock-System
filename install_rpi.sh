@@ -49,12 +49,12 @@ fi
 # Install loguru
 pip3 install loguru
 
-# Upgrade Numpy
-pip3 install -U numpy
-
 # Install OpenCV & dependencies
 sudo apt install -y libatlas-base-dev
 pip3 install opencv-python==4.6.0.*
+
+# Upgrade Numpy
+pip3 install numpy==1.21.6
 
 # Install Mediapipe
 if [ "$architecture" == "armv7l" ]; then
