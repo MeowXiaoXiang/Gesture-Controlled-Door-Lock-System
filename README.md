@@ -17,13 +17,13 @@
 2. 更新所有套件
    * `sudo apt update`
    * `sudo apt upgrade`
-3. 升級 NumPy
-   * `pip3 install -U numpy`
-4. 安裝OpenCV & 依賴項:
+3. 安裝OpenCV & 依賴項:
    * 安裝依賴項
      * `sudo apt install libatlas-base-dev`
    * 安裝 OpenCV
      * `pip3 install opencv-python==4.6.0.*`
+4. 安裝特定版本的 NumPy
+   * `pip3 install numpy==1.21.6`
 5. 安裝Mediapipe
     * 若樹梅派使用了32-bit的架構的 Raspberry Pi OS
       * Raspberry Pi 3 :
