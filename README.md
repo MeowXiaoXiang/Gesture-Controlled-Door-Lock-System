@@ -32,11 +32,13 @@
         * `pip3 install mediapipe-rpi4`
     * 若樹梅派是使用 Raspberry Pi OS (64-bit)
         * `pip3 install mediapipe`
-7. 安裝 OLED 套件
+6. 降低`protobuf`套件版本至`3.20.*`
+   * `pip3 install protobuf==3.20.*`
+8. 安裝 OLED 套件
    * `pip3 install luma.oled`
-8. 修改 [main.py](main.py) 的 **可調整區域** 來符合你的要求
+9. 修改 [main.py](main.py) 的 **可調整區域** 來符合你的要求
 
-9. 修改 **Raspberry Pi** 設定，啟動I2C
+10. 修改 **Raspberry Pi** 設定，啟動I2C
 
 ![I2C 設定](https://raw.githubusercontent.com/MeowXiaoXiang/Gesture-Controlled-Door-Lock-System/master/markdown_img/raspi_config.png)
 
