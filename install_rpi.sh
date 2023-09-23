@@ -67,6 +67,8 @@ else
     pip3 install mediapipe
 fi
 
+# Downgrade protobuf to 3.20.*
+pip3 install protobuf==3.20.*
 
 # Install OLED Package
 pip3 install luma.oled
