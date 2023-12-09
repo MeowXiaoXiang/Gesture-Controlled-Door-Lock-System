@@ -9,36 +9,56 @@
 
 * 若要快速安裝可使用 [install_rpi.sh](install_rpi.sh)
   請在此專案目錄下在 **Raspberry Pi** 的終端機輸入以下命令
-  * `bash install_rpi.sh`
+  ```bash
+  bash install_rpi.sh
+  ```
 
 1. 確認 **Raspberry Pi** 作業系統的 Debian 版本為 `10 (buster)` 或 `11 (bullseye)` 且架構為 `aarch64`
    * **Raspberry Pi** 的終端機並輸入 `lsb_release -a` 檢查版本，輸入 `uname -m` 檢查架構
    * 若版本為 `11 (bullseye)` 架構為 `armv7l` 請下載 [Raspberry Pi Imager](https://www.raspberrypi.com/software/) 並選擇安裝 `Raspberry Pi OS (Legacy)` 或 `Raspberry Pi OS (64-bit)`
 2. 更新所有套件
-   * `sudo apt update`
-   * `sudo apt upgrade`
-3. 安裝OpenCV & 依賴項:
+   ```bash
+   sudo apt update
+   sudo apt upgrade
+   ```
+4. 安裝OpenCV & 依賴項:
    * 安裝依賴項
-     * `sudo apt install libatlas-base-dev`
+     ```bash
+     sudo apt install libatlas-base-dev
+     ```
    * 安裝 OpenCV
-     * `pip3 install opencv-python==4.6.0.*`
-4. 安裝特定版本的 NumPy
-   * `pip3 install numpy==1.21.6`
-5. 安裝Mediapipe
+     ```bash
+     pip3 install opencv-python==4.6.0.*
+     ```
+5. 安裝特定版本的 NumPy
+   ```bash
+   pip3 install numpy==1.21.6
+   ```
+6. 安裝Mediapipe
     * 若樹梅派使用了32-bit的架構的 Raspberry Pi OS
       * Raspberry Pi 3 :
-        * `pip3 install mediapipe-rpi3`
+        ````bash
+        pip3 install mediapipe-rpi3
+        ```
       * Raspberry Pi 4 :
-        * `pip3 install mediapipe-rpi4`
+        ```bash
+        pip3 install mediapipe-rpi4
+        ```
     * 若樹梅派是使用 Raspberry Pi OS (64-bit)
-        * `pip3 install mediapipe`
-6. 降低`protobuf`套件版本至`3.20.*`
-   * `pip3 install protobuf==3.20.*`
+        ```bash
+        pip3 install mediapipe
+        ```
+7. 降低`protobuf`套件版本至`3.20.*`
+   ```bash
+   pip3 install protobuf==3.20.*
+   ```
 8. 安裝 OLED 套件
-   * `pip3 install luma.oled`
-9. 修改 [main.py](main.py) 的 **可調整區域** 來符合你的要求
+   ```bash
+   pip3 install luma.oled
+   ```
+10. 修改 [main.py](main.py) 的 **可調整區域** 來符合你的要求
 
-10. 修改 **Raspberry Pi** 設定，啟動I2C
+11. 修改 **Raspberry Pi** 設定，啟動I2C
 
 ![I2C 設定](https://raw.githubusercontent.com/MeowXiaoXiang/Gesture-Controlled-Door-Lock-System/master/markdown_img/raspi_config.png)
 
