@@ -37,7 +37,7 @@
 6. 安裝Mediapipe
     * 若樹梅派使用了32-bit的架構的 Raspberry Pi OS
       * Raspberry Pi 3 :
-        ````bash
+        ```bash
         pip3 install mediapipe-rpi3
         ```
       * Raspberry Pi 4 :
