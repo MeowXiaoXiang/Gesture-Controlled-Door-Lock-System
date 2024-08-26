@@ -14,8 +14,8 @@ echo "作業系統版本: $version 代號: $codename"
 read -p "是否要先更新所有套件? (按 Enter 開始更新，或輸入 'n' 跳過): " run_update
 
 if [ "$run_update" != "n" ]; then
-    echo "正在執行 'sudo apt update && sudo apt upgrade'..."
-    sudo apt update && sudo apt upgrade
+    echo "正在執行 'sudo apt update && sudo apt -y upgrade'..."
+    sudo apt update && sudo apt -y upgrade
     echo "更新完成"
 else
     echo "跳過更新"
