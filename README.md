@@ -122,5 +122,4 @@
 ---
 ## 參考資料
 * [手部21个关键点检测+手势识别-[MediaPipe]](https://blog.csdn.net/weixin_45930948/article/details/115444916) by [开鑫9575](https://blog.csdn.net/weixin_45930948)
-<br>
 * [finish_ben](https://github.com/benben-ub/finish_ben) by [benben-ub](https://github.com/benben-ub)
