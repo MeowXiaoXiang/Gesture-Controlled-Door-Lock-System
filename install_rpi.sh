@@ -14,15 +14,23 @@ echo "Raspberry Pi OS 資訊"
 echo "作業系統架構: $architecture"
 echo "作業系統版本: $version 代號: $codename"
 
-read -p "是否要先更新所有套件? (按 Enter 開始更新，或輸入 'n' 跳過): " run_update
+# 提示用戶是否進行更新
+while true; do
+    read -n 1 -p "是否要先更新所有套件? (Y/N): " run_update
+    echo # 這裡增加換行
 
-if [ "$run_update" != "n" ]; then
-    echo "正在執行 'sudo apt update && sudo apt -y upgrade'..."
-    sudo apt update && sudo apt -y upgrade
-    echo "更新完成"
-else
-    echo "跳過更新"
-fi
+    if [[ "$run_update" =~ ^[Yy]$ ]]; then
+        echo "正在執行 'sudo apt update && sudo apt -y upgrade'..."
+        sudo apt update && sudo apt -y upgrade
+        echo "更新完成"
+        break
+    elif [[ "$run_update" =~ ^[Nn]$ ]]; then
+        echo "跳過更新"
+        break
+    else
+        echo "無效輸入，請輸入 Y 或 N。"
+    fi
+done
 
 # 先安裝和升級必要的依賴項
 # 升級 Numpy
