@@ -10,7 +10,8 @@
 * 若要快速安裝可使用 [install_rpi.sh](install_rpi.sh)
   請在此專案目錄下在 **Raspberry Pi** 的終端機輸入以下命令
   ```bash
-  bash install_rpi.sh
+  sudo chmod a+x install_rpi.sh
+  ./install_rpi.sh
   ```
 
 1. 確認 **Raspberry Pi** 作業系統的 Debian 版本為 `10 (buster)` 或 `11 (bullseye)` 且架構為 `aarch64`
@@ -77,6 +78,6 @@
 
 ---
 ## 參考資料
-[手部21个关键点检测+手势识别-[MediaPipe]](https://blog.csdn.net/weixin_45930948/article/details/115444916) by [开鑫9575](https://blog.csdn.net/weixin_45930948)
+- [手部21个关键点检测+手势识别-[MediaPipe]](https://blog.csdn.net/weixin_45930948/article/details/115444916) by [开鑫9575](https://blog.csdn.net/weixin_45930948)
 <br>
-[finish_ben](https://github.com/benben-ub/finish_ben) by [benben-ub](https://github.com/benben-ub)
+- [finish_ben](https://github.com/benben-ub/finish_ben) by [benben-ub](https://github.com/benben-ub)
