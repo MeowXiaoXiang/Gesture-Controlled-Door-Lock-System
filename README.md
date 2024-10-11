@@ -43,17 +43,17 @@
 2. 更新所有套件
 在進行安裝前，建議更新所有系統套件以確保安裝過程順利：
 
-```bash
-sudo apt update
-sudo apt upgrade
-```
+  ```bash
+  sudo apt update
+  sudo apt upgrade
+  ```
 
 3. 安裝 NumPy
 首先安裝或升級 NumPy，這是後續 OpenCV 和 Mediapipe 的必要依賴：
 
-```bash
-pip3 install numpy
-```
+  ```bash
+  pip3 install numpy
+  ```
 
 4. 安裝 OpenCV 及依賴項
 接著安裝 OpenCV 及其依賴項：
@@ -90,15 +90,15 @@ pip3 install numpy
 
 6. 安裝 OLED 套件
 因為有使用 OLED 顯示器，請安裝相關的套件：
-```bash
-pip3 install luma.oled
-```
+  ```bash
+  pip3 install luma.oled
+  ```
 
 7. 安裝 Loguru
 最後，安裝 Loguru，用於日誌處理：
-```bash
-pip3 install loguru
-```
+  ```bash
+  pip3 install loguru
+  ```
 
 8. 修改 [main.py](main.py) 的 **可調整區域** 來符合你的要求
 
